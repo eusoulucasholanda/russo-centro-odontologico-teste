@@ -1,0 +1,7 @@
+/* teste 4: o siso se desmonta ao abrir e se encaixa com a rolagem */
+.hx{position:relative;background:var(--noite);color:var(--luz);height:calc(3 * 88vh + 100vh)}
+html:not(.js) .hx{height:auto}
+.hx-palco{background:var(--noite)}
+.hx .clareia{z-index:6}
+.hx .cap h1{font-size:clamp(40px,min(6.6vw,10vh),90px)}
+.hx .etq{transition:opacity .4s}

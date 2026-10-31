@@ -1,0 +1,23 @@
+/* teste 2: a foto vira raio-X com a rolagem e a câmera aproxima nos sisos */
+.hr{position:relative;background:var(--noite);color:var(--luz);height:calc(4 * 88vh + 100vh)}
+html:not(.js) .hr{height:auto}
+.hr-palco{background:var(--noite)}
+.hr-quadro{position:absolute;top:0;right:0;width:100%;height:auto;aspect-ratio:652/857;overflow:hidden;z-index:0}
+.hr-foto{position:absolute;inset:0;transform-origin:0 0;will-change:transform}
+.hr-foto > img{filter:brightness(.92) contrast(1.05)}
+.hr-foto::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(62% 52% at 50% 48%,rgba(7,11,18,0) 40%,rgba(7,11,18,.55) 75%,rgba(7,11,18,.95) 100%)}
+.hr-raiox{clip-path:inset(0 0 100% 0)}
+.hr-linha{position:absolute;left:0;right:0;top:0;height:2px;z-index:3;background:#bfe8ff;box-shadow:0 0 22px 6px rgba(127,211,255,.55),0 0 80px 20px rgba(127,211,255,.25);opacity:0;pointer-events:none}
+.hr-brilho{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(169,216,242,.28) 50%,transparent 65%);transform:translateX(-120%);animation:hrBrilho 1.6s .5s var(--ease) forwards}
+@keyframes hrBrilho{to{transform:translateX(120%)}}
+.hr-foto > img:first-child{animation:hrRespira 2.6s var(--ease-out) both}
+@keyframes hrRespira{from{transform:scale(1.07)}}
+.hr .clareia{z-index:6}
+.hr .cap h1{font-size:clamp(40px,min(6.6vw,10vh),90px)}
+@media(min-width:900px){
+  .hr-quadro{height:100%;width:auto;right:max(0px,calc((100vw - 1320px) / 2));-webkit-mask-image:linear-gradient(to right,transparent 0,#000 22%);mask-image:linear-gradient(to right,transparent 0,#000 22%)}
+}
+@media(max-width:899px){
+  .hr-quadro{-webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent 100%);mask-image:linear-gradient(to bottom,#000 70%,transparent 100%)}
+}
+@media (prefers-reduced-motion:reduce){.hr-brilho{display:none}.hr-foto > img:first-child{animation:none}}

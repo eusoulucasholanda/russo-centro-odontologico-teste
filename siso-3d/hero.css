@@ -1,0 +1,17 @@
+/* teste 3: siso 3D centralizado, estilo lançamento de produto */
+.h3{position:relative;background:var(--noite);color:var(--luz);height:calc(4 * 88vh + 100vh)}
+html:not(.js) .h3{height:auto}
+.h3-palco{background:var(--noite)}
+.h3-vinheta{background:linear-gradient(to top,var(--noite) 0%,rgba(7,11,18,.9) 30%,rgba(7,11,18,0) 58%),radial-gradient(120% 80% at 50% 45%,transparent 50%,rgba(7,11,18,.75) 100%)}
+.h3 .clareia{z-index:6}
+.h3 .cap h1{font-size:clamp(42px,min(7vw,10vh),96px)}
+@media(min-width:900px){
+  .h3-vinheta{background:linear-gradient(to bottom,var(--noite) 0%,rgba(7,11,18,.85) 20%,rgba(7,11,18,0) 42%),radial-gradient(110% 90% at 50% 60%,transparent 55%,rgba(7,11,18,.75) 100%)}
+  .h3 .js .cap,.js .h3 .cap{left:50%;right:auto;top:100px;bottom:auto;width:min(820px,86vw);text-align:center;transform:translate(-50%,22px)}
+  .js .h3 .cap.ativo{transform:translate(-50%,0)}
+  .h3 .cap .rotulo{justify-content:center}
+  .h3 .cap p{margin-inline:auto}
+  .h3 .cap .acoes{justify-content:center}
+  .h3 .cap h2{font-size:clamp(40px,min(4.6vw,7vh),64px)}
+}
+.h3 .etq b{font-weight:500;padding:7px 12px 6px;border-radius:999px;background:rgba(7,11,18,.74);border:1px solid rgba(237,232,223,.16);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);text-shadow:none}

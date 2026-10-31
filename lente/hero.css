@@ -1,0 +1,48 @@
+/* teste 1: raio-X com lente que segue o mouse ou o dedo */
+.hl{position:relative;background:radial-gradient(60% 70% at 72% 52%,rgba(200,164,106,.14),transparent 60%),radial-gradient(40% 50% at 70% 60%,rgba(127,211,255,.08),transparent 70%),var(--noite);color:var(--luz);padding:104px 0 72px;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;align-items:center}
+.hl-grade{display:grid;gap:36px;width:100%}
+.hl .rotulo{color:var(--ouro);display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.hl .rotulo::before{content:"";width:28px;height:1px;background:currentColor}
+.hl h1{font-size:clamp(40px,min(6vw,9.5vh),84px);line-height:.98;letter-spacing:-.02em;margin-bottom:22px}
+.hl-apoio{color:var(--luz-2);font-size:clamp(16px,1.4vw,18px);max-width:44ch}
+.hl-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin-top:28px}
+.hl-tudo{gap:10px}
+.hl-tudo svg{width:18px;height:18px;transition:transform .6s var(--ease)}
+.hl-tudo[aria-pressed="true"] svg{transform:rotate(90deg)}
+.hl-selos{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.hl-selos li{font-size:12.5px;padding:7px 12px;border-radius:999px;border:1px solid var(--noite-linha);color:var(--luz-2)}
+.hl-palco{position:relative;justify-self:center;width:100%}
+.hl-foto{width:100%;border-radius:26px;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(237,232,223,.08);cursor:none;-webkit-user-select:none;user-select:none}
+.hl-foto > img{transform:scale(1.04);animation:hlRespira 2.4s var(--ease-out) forwards}
+@keyframes hlRespira{to{transform:none}}
+.hl-raiox{clip-path:circle(0 at 50% 55%);will-change:clip-path}
+.hl-lente{position:absolute;left:0;top:0;width:236px;height:236px;border-radius:50%;pointer-events:auto;touch-action:none;cursor:grab;will-change:transform,opacity;border:1.5px solid rgba(169,216,242,.9);box-shadow:0 0 0 1px rgba(255,255,255,.12),0 0 46px rgba(127,211,255,.45),inset 0 0 34px rgba(127,211,255,.35);z-index:2}
+.hl-lente:active{cursor:grabbing}
+.hl-lente i,.hl-lente i::before,.hl-lente i::after{position:absolute;content:"";background:rgba(169,216,242,.85)}
+.hl-lente i{left:50%;top:-1px;width:1.5px;height:14px;transform:translateX(-50%)}
+.hl-lente i::before{left:0;top:calc(236px - 12px);width:1.5px;height:14px}
+.hl-lente::before,.hl-lente::after{content:"";position:absolute;top:50%;width:14px;height:1.5px;background:rgba(169,216,242,.85)}
+.hl-lente::before{left:-1px}.hl-lente::after{right:-1px}
+.hl-lente span{position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#cfeaff;background:rgba(7,11,18,.82);border:1px solid rgba(169,216,242,.45);padding:5px 10px;border-radius:999px;white-space:nowrap}
+.hl-scan{position:absolute;left:0;right:0;top:0;height:2px;background:#9fdcff;box-shadow:0 0 18px 4px rgba(127,211,255,.6);opacity:0;animation:hlScan 1.5s .35s var(--ease) forwards;z-index:3;pointer-events:none}
+@keyframes hlScan{0%{opacity:1;transform:translateY(0)}90%{opacity:1}100%{opacity:0;transform:translateY(var(--h,600px))}}
+.hl-dica{display:flex;justify-content:center;margin-top:18px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--luz-2);transition:opacity .6s}
+.hl-dica span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#7fd3ff;margin-right:10px;box-shadow:0 0 12px #7fd3ff;animation:pulsa 2s infinite}
+.hl-dica.sumiu{opacity:0}
+.so-toque{display:none}
+@media (pointer:coarse){.so-mouse{display:none}.so-toque{display:inline}.hl-foto{cursor:auto}}
+.hl-entra{opacity:0;transform:translateY(16px);animation:hlEntra .9s var(--ease-out) forwards}
+.hl-texto .hl-entra:nth-child(2){animation-delay:.08s}.hl-texto .hl-entra:nth-child(3){animation-delay:.16s}.hl-texto .hl-entra:nth-child(4){animation-delay:.24s}.hl-texto .hl-entra:nth-child(5){animation-delay:.32s}
+.hl-palco.hl-entra{animation-delay:.1s}
+@keyframes hlEntra{to{opacity:1;transform:none}}
+@media(min-width:900px){
+  .hl-grade{grid-template-columns:1fr minmax(0,.82fr);align-items:center;gap:64px}
+  .hl-foto{height:min(76vh,720px);width:auto;margin-inline:auto}
+}
+@media(max-width:899px){
+  .hl{padding-top:92px;align-items:flex-start}
+  .hl-palco{order:-1;max-width:440px}
+  .hl-lente{width:176px;height:176px}
+  .hl-lente i::before{top:calc(176px - 12px)}
+}
+@media (prefers-reduced-motion:reduce){.hl-entra,.hl-foto > img{opacity:1;transform:none;animation:none}.hl-scan{display:none}}

@@ -1,0 +1,25 @@
+/* raio-X desenhado sobre a foto do Assis */
+.rx-foto{position:relative;aspect-ratio:652/857;overflow:hidden;background:#0b1422}
+.rx-foto > img,.rx-camada > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.rx-camada{position:absolute;inset:0;overflow:hidden}
+.rx-neg{filter:grayscale(1) invert(1) brightness(.78) contrast(1.35) sepia(.5) hue-rotate(168deg) saturate(2)}
+.rx-camada::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 55% at 49% 50%,rgba(10,30,52,0) 0%,rgba(6,14,26,.55) 70%,rgba(4,9,18,.92) 100%),linear-gradient(rgba(20,70,120,.18),rgba(20,70,120,.18));mix-blend-mode:normal}
+.rx-camada svg{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.rx-osso{fill:rgba(220,240,255,.1);stroke:rgba(205,235,255,.5);stroke-width:1}
+.rx-vazio{fill:rgba(2,8,16,.22);stroke:rgba(190,228,255,.38);stroke-width:1}
+.rx-vazio.fraco{fill:rgba(2,8,16,.3);stroke-opacity:.3}
+.rx-vazio.coluna{fill:rgba(200,232,255,.08);stroke-opacity:.28}
+.rx-linha{fill:none;stroke:rgba(205,235,255,.5);stroke-width:1.4;stroke-linecap:round}
+.rx-linha.grossa{stroke-width:5;stroke:rgba(205,235,255,.22)}
+.rx-mand-borda{fill:none;stroke:rgba(215,240,255,.7);stroke-width:27;stroke-linecap:round;stroke-linejoin:round}
+.rx-mand{fill:none;stroke:#132a40;stroke-width:23;stroke-linecap:round;stroke-linejoin:round;opacity:.86}
+.rx-canal{fill:none;stroke:#7fd3ff;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:3 4}
+.rx-dente path:first-child{stroke:rgba(235,248,255,.6);stroke-width:.6}
+.rx-polpa{fill:none;stroke:rgba(10,24,40,.75);stroke-width:1.6;stroke-linecap:round}
+.rx-siso path:first-child{stroke:#E2C48F;stroke-width:1.4}
+.rx-marcas{opacity:var(--rx-marcas,1)}
+.rx-marca circle{fill:none;stroke:#C8A46A;stroke-width:1.6;stroke-dasharray:3 3;transform-box:fill-box;transform-origin:center;animation:rxGira 8s linear infinite}
+.rx-marca path{fill:none;stroke:rgba(226,196,143,.85);stroke-width:1}
+.rx-marca text{font-family:Inter,system-ui,sans-serif;font-size:15px;font-weight:600;letter-spacing:.06em;fill:#E2C48F}
+@keyframes rxGira{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.rx-marca circle{animation:none}}
